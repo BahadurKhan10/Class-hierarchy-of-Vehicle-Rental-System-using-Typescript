@@ -2,7 +2,7 @@ abstract class Vehicle{
     constructor(
         public _model: string,
         public _yearAssembled: Date,
-        public _rented: "True" | "False",
+        public _rented: "True" | "False", //can write Boolean
         public _rentRate: number,
 
 
@@ -56,7 +56,7 @@ class Car extends Vehicle{
     constructor(
         model: string,
         yearAssembled: Date,
-        rented: "True" | "False",
+        rented: "True" | "False", //can write Boolean
         rentRate:number,
         private _color: string,
         private _numberPlate: string,
@@ -94,7 +94,7 @@ class Truck extends Vehicle{
     constructor(
         model: string,
         yearAssembled: Date,
-        rented: "True" | "False",
+        rented: "True" | "False", //can write Boolean
         rentRate:number,
         private _color: string,
         private _numberPlate: string,
@@ -132,7 +132,7 @@ class Motorcycle extends Vehicle{
     constructor(
         model: string,
         yearAssembled: Date,
-        rented: "True" | "False",
+        rented: "True" | "False", //can write Boolean
         rentRate:number,
         private _color: string,
         private _numberPlate: string,
