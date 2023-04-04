@@ -34,8 +34,8 @@ class Vehicle {
     }
     return() {
         if (this._rented === true) {
-            console.log("Returning rented Vehicle \n Returned rented vechle successfully.");
             this._rented = false;
+            return "Returning rented Vehicle \n Returned rented vechle successfully.";
         }
         else {
             return "This Vehicle is already rented";
