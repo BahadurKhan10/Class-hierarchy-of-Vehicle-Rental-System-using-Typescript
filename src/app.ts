@@ -39,6 +39,7 @@ abstract class Vehicle{
 
         rent():string{
             if(this._rented===false){
+                this._rented=true
                 return "Renting Vehicle...\n Vechile rented successfully."
 
             }
