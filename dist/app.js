@@ -1,10 +1,10 @@
 "use strict";
 class Vehicle {
-    constructor(_model, _yearAssembled, _rented, _rentRate) {
-        this._model = _model;
-        this._yearAssembled = _yearAssembled;
-        this._rented = _rented;
-        this._rentRate = _rentRate;
+    constructor(model, yearAssembled, rented, rentRate) {
+        this._model = model,
+            this._yearAssembled = yearAssembled,
+            this._rented = rented,
+            this._rentRate = rentRate;
     }
     //getters
     get model() {
@@ -24,31 +24,33 @@ class Vehicle {
         this._rented = newRented;
     }
     rent() {
-        if (this._rented == "False") {
-            console.log("Renting Vehicle...");
+        if (this._rented === false) {
+            return "Renting Vehicle...\n Vechile rented successfully.";
         }
-        console.log("This Vehicle is already rented");
+        else {
+            return "This Vehicle is already rented";
+        }
     }
     return() {
-        if (this._rented == "True") {
-            console.log("Returning rented Vehicle");
-            this._rented = "False";
+        if (this._rented === true) {
+            console.log("Returning rented Vehicle \n Returned rented vechle successfully.");
+            this._rented = false;
         }
-        console.log("This Vehicle is not rented");
+        else {
+            return "This Vehicle is already rented";
+        }
     }
 }
+// Sub classes for Vehicle types.
 class Car extends Vehicle {
-    constructor(model, yearAssembled, rented, rentRate, _color, _numberPlate, _capacity) {
+    constructor(model, yearAssembled, rented, rentRate, color, numberPlate, capacity) {
         super(model, yearAssembled, rented, rentRate);
-        this._color = _color;
-        this._numberPlate = _numberPlate;
-        this._capacity = _capacity;
+        this._color = color,
+            this._numberPlate = numberPlate,
+            this._capacity = capacity;
     }
     rentalRate() {
         return this.rentRate;
-    }
-    get model() {
-        return this._model;
     }
     get color() {
         return this._color;
@@ -64,17 +66,14 @@ class Car extends Vehicle {
     }
 }
 class Truck extends Vehicle {
-    constructor(model, yearAssembled, rented, rentRate, _color, _numberPlate, _capacity) {
+    constructor(model, yearAssembled, rented, rentRate, color, numberPlate, capacity) {
         super(model, yearAssembled, rented, rentRate);
-        this._color = _color;
-        this._numberPlate = _numberPlate;
-        this._capacity = _capacity;
+        this._color = color,
+            this._numberPlate = numberPlate,
+            this._capacity = capacity;
     }
     rentalRate() {
         return this.rentRate;
-    }
-    get model() {
-        return this._model;
     }
     get color() {
         return this._color;
@@ -90,17 +89,14 @@ class Truck extends Vehicle {
     }
 }
 class Motorcycle extends Vehicle {
-    constructor(model, yearAssembled, rented, rentRate, _color, _numberPlate, _capacity) {
+    constructor(model, yearAssembled, rented, rentRate, color, numberPlate, capacity) {
         super(model, yearAssembled, rented, rentRate);
-        this._color = _color;
-        this._numberPlate = _numberPlate;
-        this._capacity = _capacity;
+        this._color = color,
+            this._numberPlate = numberPlate,
+            this._capacity = capacity;
     }
     rentalRate() {
         return this.rentRate;
-    }
-    get model() {
-        return this._model;
     }
     get color() {
         return this._color;
@@ -117,28 +113,28 @@ class Motorcycle extends Vehicle {
 }
 // Main Program
 // Create instances of each type of vehicle
-const car = new Car("Audi", new Date(2020, 1, 1), "False", 50, "red", "ABC123", 5);
-const truck = new Truck("Ford", new Date(2019, 1, 1), "False", 100, "blue", "XYZ789", 1000);
-const motorcycle = new Motorcycle("Harley Davidson", new Date(2021, 1, 1), "False", 30, "black", "DEF456", 2);
+const car = new Car("Audi", "2020", false, 50, "red", "ABC123", 5);
+const truck = new Truck("Ford", "2019", false, 100, "blue", "XYZ789", 1000);
+const motorcycle = new Motorcycle("Harley Davidson", "2021", false, 30, "black", "DEF456", 2);
 // Rent and return Car
 console.log("Renting a car...");
-car.rent(); // Renting Vehicle...
+console.log(car.rent()); // Renting Vehicle...
 console.log("Trying to rent the same car again...");
-car.rent(); // This Vehicle is already rented
+console.log(car.rent()); // This Vehicle is already rented
 console.log("Returning the car...");
-car.return(); // Returning rented Vehicle
+console.log(car.return()); // Returning rented Vehicle
 console.log("Trying to return the same car again...");
-car.return(); // This Vehicle is not rented
+console.log(car.return()); // This Vehicle is not rented
 // Rent and return Truck
 console.log("Renting a truck...");
-truck.rent(); // Renting Vehicle...
+console.log(truck.rent()); // Renting Vehicle...
 console.log("Returning the truck...");
-truck.return(); // Returning rented Vehicle
+console.log(truck.return()); // Returning rented Vehicle
 // Rent and return Motorcycle
 console.log("Trying to return the motorcycle...");
-motorcycle.return(); // This Vehicle is not rented
+console.log(motorcycle.return()); // This Vehicle is not rented
 console.log("Renting the motorcycle...");
-motorcycle.rent(); // Renting Vehicle...
+console.log(motorcycle.rent()); // Renting Vehicle...
 console.log("Returning the motorcycle...");
-motorcycle.return(); // Returning rented Vehicle
+console.log(motorcycle.return()); // Returning rented Vehicle
 //# sourceMappingURL=app.js.map
