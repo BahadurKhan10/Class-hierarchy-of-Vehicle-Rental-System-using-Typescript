@@ -25,6 +25,7 @@ class Vehicle {
     }
     rent() {
         if (this._rented === false) {
+            this._rented = true;
             return "Renting Vehicle...\n Vechile rented successfully.";
         }
         else {
